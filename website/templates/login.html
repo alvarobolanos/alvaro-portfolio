@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Log In Form</h1>
+    <form method="POST">
+        {{form.hidden_tag()}}
+        <div class="form-group align-items-center">
+            <div class="row">
+                {{form.email.label}}
+                {{form.email(class="form-control")}}
+            </div>
+        <div class="form-group align-items-center">
+            <div class="row">
+                {{form.password.label}}
+                {{form.password(class="form-control")}}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-auto">
+                {{form.submit}}
+            </div>
+        </div>
+    </form>
+{% endblock content %}
