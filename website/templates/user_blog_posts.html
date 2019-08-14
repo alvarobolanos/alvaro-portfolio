@@ -10,7 +10,7 @@
 {% for post in blog_posts.items %}
 <h2><a href="{{url_for('blog_posts.blog_posts',blog_post_id=post.id)}}">{{post.title}}</a></h2>
 <p>Written by: <a href="{{url_for('users.user_post', username=post.author.username)}}">{{post.author.username}}</a></p>
-<p class="text-muted">Published on: {{post.datedstrftime("%y-%m-%d")}}</p>
+<p class="text-muted">Published on: {{post.datestrftime("%y-%m-%d")}}</p>
 <br>
 <p>{{post.text}}</p>
 <br>
