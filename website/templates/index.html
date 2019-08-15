@@ -7,40 +7,56 @@
         <h1 class="display-4">Hello, I’m Alvaro Bolanos.</h1>
         <p class="lead">I’m a full stack web developer & software programmer. <br>
             <!-- I incorporate UI/UX and SEM into my work. <br> -->
-            Learn more about me, check out my portfolio, read my blog and contact me to bring your ideas to life. </p>
+            Learn more <a href="#about">about me</a>, check out my <a href="#portfolio">porfolio</a>, read my <a href="#blog">blog</a> and <a href="#contact">contact me</a> to bring your ideas to life. </p>
     </div>
 </div>
 
-<div class="container">
-    {% for post in blog_posts.items %}
+<div id="about">
+    <div class="container">
+        <h2>About</h2>
+    </div>
+</div>
 
-    <div class="card" >
+<div id="portfolio">
+    <div class="container">
+        <h2>Portfolio</h2>
+    </div>
+</div>
 
-        <div class="card-body">
-
-
-        <h2><a class="card-title" href="{{url_for('blog_posts.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
-        <a href="{{url_for('users.user_posts', username=post.author.username)}}">Written By: {{post.author.username}}</a>
-        <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
-        <p class="card-text">{{post.text[:100]}}...</p>
-        <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}" class="btn btn-primary">Read Post</a>
+<div id="blog">
+    <div class="container">
+        <h2>Blog</h2>
+        {% for post in blog_posts.items %}
+        <div class="card" >
+            <div class="card-body">
+            <h2><a class="card-title" href="{{url_for('blog_posts.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
+            <a href="{{url_for('users.user_posts', username=post.author.username)}}">Written By: {{post.author.username}}</a>
+            <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
+            <p class="card-text">{{post.text[:100]}}...</p>
+            <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}" class="btn btn-primary">Read Post</a>
         </div>
     </div>
-
     {% endfor %}
-
+    
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-        {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if blog_posts.page == page_num %}
             <li class="page-item disabled">
-            <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
+                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
             </li>
             {% else %}
             <li class="page-item"><a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
             {% endif %}
-        {% endfor %}
-    </nav>
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+
+<div id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+    </div>
 </div>
 
 {% endblock content %}
