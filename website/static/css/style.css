@@ -1,5 +1,6 @@
 div#hero {
     background-image: url("../images/hero_img.jpg");
+    background-attachment: fixed;
     margin-bottom: 1rem;
 }
 
