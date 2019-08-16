@@ -23,6 +23,7 @@ div.hero_title {
 div.hero_text {
     margin: auto;
     position: relative;
+    line-height: 3rem;
 }
 
 
