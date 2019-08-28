@@ -1,33 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div align='center'>
-    <h1>{{current_user.username.capitalize()}}'s Account Page</h1>
-    <img align='center' src="{{url_for('static',filename='profile_pics/'+current_user.profile_image)}}" alt="Profile Image">
+<div class="container">
+    <div align='center'>
+        <h1>{{current_user.username.capitalize()}}'s Account Page</h1>
+        <img align='center' src="{{url_for('static',filename='profile_pics/'+current_user.profile_image)}}" alt="Profile Image">
+    </div>
+    
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        <div class="form-group">
+            {{form.username.label(class='form-group')}}
+            {{form.username(class="form-control")}}
+        </div>
+    
+        <div class="form-group">
+            {{form.email.label(class='form-group')}}
+            {{form.email(class="form-control")}}
+        </div>
+    
+        <div class="form-group">
+            {{form.picture.label(class='form-group')}}
+            {{form.picture(class="form-control")}}
+        </div>
+    
+        <div class="form-group">
+            {{form.submit(class='btn btn-primary')}}
+        </div>
+    </form>
 </div>
-
-<form method="POST" action="" enctype="multipart/form-data">
-    {{form.hidden_tag()}}
-    <div class="form-group">
-        {{form.username.label(class='form-group')}}
-        {{form.username(class="form-control")}}
-    </div>
-
-    <div class="form-group">
-        {{form.email.label(class='form-group')}}
-        {{form.email(class="form-control")}}
-    </div>
-
-    <div class="form-group">
-        {{form.picture.label(class='form-group')}}
-        {{form.picture(class="form-control")}}
-    </div>
-
-    <div class="form-group">
-        {{form.submit(class='btn btn-primary')}}
-    </div>
-</form>
 
 
 {% endblock content %}

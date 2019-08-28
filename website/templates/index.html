@@ -4,61 +4,112 @@
 <!-- Hero -->
 <div id="hero">
     <div class="container">
-        <div class="hero_text_wrap">
-            <div class="hero_title">
+        <div id="hero_text_wrap">
+            <div id="hero_title">
                 <h1 class="display-4">Hello, I’m Alvaro Bolanos.</h1>
             </div>
-            <div class="hero_text">
+            <div id="hero_text">
                 <p class="lead">I’m a full stack web developer & software programmer. <br>
-                Learn more <a href="#about">about me</a>, check out my <a href="#portfolio">porfolio</a>, <br> read my <a href="#blog">blog</a> & <a href="#contact">contact me</a> <br> to bring your ideas to life. 
+                    Learn more <a href="#about">about me</a>, check out my <a href="#portfolio">porfolio</a>, <br> read
+                    my <a href="#blog">blog</a> & <a href="#contact">contact me</a> <br> to bring your ideas to life.
                 </p>
             </div>
-        </div>    
-    </div>
-</div>
-        
-<div id="about">
-    <div class="container">
-        <h2>About</h2>
+        </div>
     </div>
 </div>
 
+<!-- About -->
+<div class="container">
+    <div id="about py-5">
+        <h2>About</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-6 justify-content-center">
+                    <img class="img-circle " src="../static/images/hero_img.jpg" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Benefit 1</h3>
+                        <p class="card-text">This is the benefit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-6">
+                    <img class="img-circle " src="../static/images/hero_img.jpg" alt="">
+                    <div class="card-body">
+                        <h3>Benefit 1</h3>
+                        <p class="card-text">This is the benefit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-6">
+                    <img class="img-circle " src="../static/images/hero_img.jpg" alt="">
+                    <div class="card-body">
+                        <h3>Benefit 1</h3>
+                        <p class="card-text">This is the benefit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-6">
+                    <img class="img-circle " src="../static/images/hero_img.jpg" alt="">
+                    <div class="card-body">
+                        <h3>Benefit 1</h3>
+                        <p class="card-text">This is the benefit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Portfolio -->
 <div id="portfolio">
     <div class="container">
         <h2>Portfolio</h2>
     </div>
 </div>
 
+<!-- Blog -->
 <div id="blog">
     <div class="container">
         <h2>Blog</h2>
         {% for post in blog_posts.items %}
-        <div class="card" >
+        <div class="card">
             <div class="card-body">
-            <h2><a class="card-title" href="{{url_for('blog_posts.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
-            <a href="{{url_for('users.user_posts', username=post.author.username)}}">Written By: {{post.author.username}}</a>
-            <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
-            <p class="card-text">{{post.text[:100]}}...</p>
-            <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}" class="btn btn-primary">Read Post</a>
+                <h2><a class="card-title"
+                        href="{{url_for('blog_posts.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
+                <a href="{{url_for('users.user_posts', username=post.author.username)}}">Written By:
+                    {{post.author.username}}</a>
+                <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
+                <p class="card-text">{{post.text[:100]}}...</p>
+                <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}" class="btn btn-primary">Read
+                    Post</a>
+            </div>
         </div>
-    </div>
-    {% endfor %}
-    
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-            {% if blog_posts.page == page_num %}
-            <li class="page-item disabled">
-                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
-            </li>
-            {% else %}
-            <li class="page-item"><a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
-            {% endif %}
-            {% endfor %}
+        {% endfor %}
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if blog_posts.page == page_num %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a>
+                </li>
+                </li>
+                {% else %}
+                <li class="page-item"><a class="page-link"
+                        href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
+                {% endif %}
+                {% endfor %}
         </nav>
     </div>
 </div>
 
+<!-- Contact -->
 <div id="contact">
     <div class="container">
         <h2>Contact</h2>

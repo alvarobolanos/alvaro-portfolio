@@ -2,9 +2,9 @@
 
 {% block content %}
 
-
-<h1>Registration Form</h1>
-    <form method="POST">
+<div class="container">
+        <h1>Registration Form</h1>
+        <form method="POST">
         {{form.hidden_tag()}}
         <div class="form-group">
                 {{form.email.label}}
@@ -21,6 +21,7 @@
         <div class="form-group">
                 {{form.submit}}
         </div>
-    </form>   
+        </form>   
+</div>
 
 {% endblock content %}

@@ -1,6 +1,17 @@
+/*  GENERAL */
+body {
+    background-image: url("../images/pattern.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-repeat: repeat;
+}
+
+/* HERO */
+
 div#hero {
     background-image: url("../images/hero_img.jpg");
     background-attachment: fixed;
+    background-position: 0% 46%;
     margin-bottom: 1rem;
 }
 
@@ -9,19 +20,19 @@ div#hero > div.container {
     width: auto;
 }
 
-div.hero_text_wrap {
+div#hero_text_wrap {
     display: flex;
     flex-direction: column;
     height: inherit;
     width: 100%;
 }
 
-div.hero_title {
+div#hero_title {
     margin: auto;
     position: relative;
 }
 
-div.hero_text {
+div#hero_text {
     margin: auto;
     position: relative;
     line-height: 3rem;
@@ -29,7 +40,20 @@ div.hero_text {
 
 
 h1.display-4, p.lead{
-    color: white;
+    /* color: white; */
     text-align: center;
     vertical-align: middle;
+}
+
+/* ABOUT */
+
+
+
+/* Image Modifiers */
+
+.img-circle {
+    /* border-radius: 50%; */
+    width: 200px;
+    height: auto;
+    margin: 1rem;
 }
